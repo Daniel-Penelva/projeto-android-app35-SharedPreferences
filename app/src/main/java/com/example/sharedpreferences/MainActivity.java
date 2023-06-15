@@ -66,6 +66,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // Recuperar os dados que foi salvo no preferencias
+        SharedPreferences preferences = getSharedPreferences(ARQUIVO_PREFERENCE, 0);
+
+        // Validar se temos o nome preferencias - vai identificar se contêm a chave.
+        if(preferences.contains("nome")){
+            String nome = preferences.getString("nome", "Usuário não definido!");
+            textResultado.setText("Olá, " + nome);
+
+
+        }else {
+            textResultado.setText("Olá, Usuário não definido!");
+        }
     }
 }
 
